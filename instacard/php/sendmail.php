@@ -1,9 +1,9 @@
 <?php
 // Your name
-$myname = 'Sebastian Black';
+$myname = 'Simone Scalabrino';
 
 // Your email
-$myemail = 'sebastian@black.com';
+$myemail = 's.scalabrino9@gmail.com';
 
 // Email subject
 $subject = 'Message from website';

@@ -1,0 +1,22 @@
+{
+  "name": "Simone Scalabrino",
+  "authors": [
+    "Simone Scalabrino <s.scalabrino9@gmail.com>"
+  ],
+  "description": "My web page",
+  "main": "index.html",
+  "keywords": [
+    "simone",
+    "scalabrino"
+  ],
+  "license": "MIT",
+  "homepage": "dibt.unimol.it/staff/sscalabrino",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
