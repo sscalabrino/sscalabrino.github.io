@@ -69,6 +69,8 @@
       }
 
       .publication .details .authors {
+          line-height: 1.3;
+          margin-top: 6px;
           font-size: 10px;
       }
 
@@ -77,8 +79,16 @@
           font-size:12px;
       }
       .publication .title {
+          line-height: 1.3;
           margin:0;
           font-size: 14px;
+      }
+      .publication .subtitle {
+          line-height: 1.3;
+          margin:0;
+          margin-top: 2px;
+          text-style: italic;
+          font-size: 12px;
       }
       .veune {
           font-style:italic;
@@ -93,9 +103,51 @@
           float:left;
           width:60px;
       }
+      
+      .obscure {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          top:0;
+          left:0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.5);
+      }
+      
+      .panel {
+          position: fixed;
+          width:30%;
+          left: 35%;
+          top: 35%;
+          
+          background-color: white;
+      }
+      
+      .panel .content {
+          margin: 3px;
+          padding: 4px;
+          
+          background-color: rgba(0,0,0,0.1);
+      }
+      
+      
+      .panel .content #text {
+          line-height: 1;
+          font-family: monospace;
+      }
+      
     </style>
 </head>
 <body class="light-shadow">
+    <div class="obscure">
+        <div class="panel">
+            <div class="content">
+                <div id="text">This is a test</div>
+                <a href="javascript:close_cite()">Close</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -214,20 +266,96 @@
           <div class="publication clearfix">
             <div class="type" style="font-size: 12px; font-weight: bold;">Type</div>
             <div class="details">
-              <div class="title" style="font-size: 12px; font-weight: bold;">Title and authors</div>
+              <div class="title" style="font-size: 12px; font-weight: bold; line-height: 2;">Title and authors</div>
             </div>
 
             <div class="description">
               <div class="venue" style="font-size: 12px; font-weight: bold;">Venue</div>
             </div>
-            <div class="download" style="font-size: 12px; font-weight: bold;">Download</div>
+            <div class="download" style="font-size: 12px; font-weight: bold;">Resources</div>
           </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[C6]</div>
+
+            <div class="details">
+              <div class="title">On Software Odysseys and How to Prevent Them</div>
+              <div class="authors">Simone Scalabrino</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">ICSE SRC</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2017/icsesrcOdysseysPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2017', 'icsesrcOdysseys');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[C5]</div>
+
+            <div class="details">
+              <div class="title">Supporting Software Developers with a Holistic Recommender System</div>
+              <div class="authors">Luca Ponzanelli, Simone Scalabrino, Gabriele Bavota, Andrea Mocci, Rocco Oliveto, Massimiliano Di Penta, Michele Lanza</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">ICSE</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2017/icseLibraPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2017', 'icseLibra');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[C4]</div>
+
+            <div class="details">
+              <div class="title">How Open Source Projects use Static Code Analysis Tools in Continuous Integration Pipelines</div>
+              <div class="authors">Fiorella Zampetti, Simone Scalabrino, Rocco Oliveto, Gerardo Canfora, Massimiliano Di Penta</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">MSR</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2017/msrASCATPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2017', 'msrASCAT');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Book chapter">[BC1]</div>
+
+            <div class="details">
+              <div class="title">Freelancing in the Economy 4.0</div>
+              <div class="subtitle">Social Media for Knowledge Management Applications in Modern Organizations</div>
+              <div class="authors">Simone Scalabrino, Salvatore Geremia, Remo Pareschi, Marcello Bogetti, Rocco Oliveto</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">-</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+            </div>
+          </div>
+          
           <div class="publication clearfix">
             <div class="type" title="Conference paper">[C3]</div>
 
             <div class="details">
               <div class="title">Search-based Testing of Procedural Programs: Iterative Single-Target or Multi-Target Approach?</div>
-              <div class="authors">Simone Scalabrino, Giovanni Grano, Dario Di Nucci, Rocco Oliveto; Andrea De Lucia</div>
+              <div class="authors">Simone Scalabrino, Giovanni Grano, Dario Di Nucci, Rocco Oliveto, Andrea De Lucia</div>
             </div>
 
             <div class="description">
@@ -237,6 +365,7 @@
 
             <div class="download">
               <a href="files/2016/ssbseSearchPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2016', 'ssbseSearch');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
             </div>
           </div>
           
@@ -255,6 +384,7 @@
 
             <div class="download">
               <a href="files/2016/icpcImprovingPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2016', 'icpcImproving');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
             </div>
           </div>
 
@@ -331,7 +461,7 @@
                         <li><b>API</b>: the core of MyUnimol, which interacts with the system used by the University</li>
                         <li><a href="https://www.myunimol.it/">WebApp</a>: a flexible web application</li>
                         <li><a href="https://play.google.com/store/apps/details?id=rocks.teammolise.myunimol">Android App</a>: a native app for Android devices</li>
-                        <li>iOS App: a native app for Apple devices (available soon!)</li>
+                        <li><a href="https://itunes.apple.com/it/app/myunimol/id1123469490">iOS App</a>: a native app for Apple devices</li>
                     </ul>
                     </p>
                 </div>
@@ -402,8 +532,23 @@
     <script src="jquery.jstwitter.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/instacard.js"></script>
-
+    <script src="js/citations.js"></script>
+    
     <!-- Google Analytics rocks! Change to your ID for awesome tracking and analytics -->
+    <script type="text/javascript">
+    function cite(year, name) {
+        citation = get_citation(year, name)
+        $('.obscure .panel .content #text').html(citation)
+        $('.obscure .panel .content #text').ready(function() {
+            $('.obscure .panel').css('top', 0)//(window.innerHeight/2 - $('.obscure .panel').height()/2) + "px")
+            $('.obscure').show()
+        })
+    }
+    
+    function close_cite(name) {
+        $('.obscure').hide()
+    }
+    </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-12345678-1']);
