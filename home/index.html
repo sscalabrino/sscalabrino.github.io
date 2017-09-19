@@ -16,6 +16,7 @@
         ga('send', 'pageview');
 
     </script>
+    
     <!-- Character Set -->
     <meta charset="utf-8">
 
@@ -41,101 +42,146 @@
     <!-- Modernizr -->
     <script src="js/modernizr-2.6.1.min.js"></script>
     <style>
+        /* Experiences */
+        .publications {
+            margin-top:12px;
+            border-top:1px solid #e0e0e0;
+        }
+        .publication {
+            border-bottom:1px solid #e0e0e0;
+            padding:11px 0;
+        }
 
-      /* Experiences */
-      .publications {
-          margin-top:12px;
-          border-top:1px solid #e0e0e0;
-      }
-      .publication {
-          border-bottom:1px solid #e0e0e0;
-          padding:11px 0;
-      }
-
-      .publication:hover {
+        .publication:hover {
         background-color: #e0e0e0;
-      }
+        }
 
-      .publication .type {
-          float:left;
-          width: 50px;
-          margin-left: 4px;
-          font-size: 12px;
-      }
+        .publication .type {
+            float:left;
+            width: 50px;
+            margin-left: 4px;
+            font-size: 12px;
+        }
 
-      .publication .details {
-          float:left;
-          width:430px;
-      }
+        .publication .details {
+            float:left;
+            width:100%;
+        }
 
-      .publication .details .authors {
-          line-height: 1.3;
-          margin-top: 6px;
-          font-size: 10px;
-      }
+        .publication .details .authors {
+            line-height: 1.3;
+            margin-top: 6px;
+            font-size: 10px;
+        }
 
-      .publication .description .type,
-      .publication .description .venue {
-          font-size:12px;
-      }
-      .publication .title {
-          line-height: 1.3;
-          margin:0;
-          font-size: 14px;
-      }
-      .publication .subtitle {
-          line-height: 1.3;
-          margin:0;
-          margin-top: 2px;
-          text-style: italic;
-          font-size: 12px;
-      }
-      .veune {
-          font-style:italic;
-          color:#c5c5c5;
-      }
-      .publication .description {
-          float:left;
-          width:120px;
-      }
+        .publication .description .type,
+        .publication .description .venue {
+            font-size:12px;
+        }
+        .publication .title {
+            line-height: 1.3;
+            margin:0;
+            font-size: 14px;
+        }
+        .publication .subtitle {
+            line-height: 1.3;
+            margin:0;
+            margin-top: 2px;
+            text-style: italic;
+            font-size: 12px;
+        }
+        .veune {
+            font-style:italic;
+            color:#c5c5c5;
+        }
+        .publication .description {
+            float:left;
+            width:120px;
+        }
 
-      .publication .download {
-          float:left;
-          width:60px;
-      }
-      
-      .obscure {
-          display: none;
-          position: fixed;
-          z-index: 1000;
-          top:0;
-          left:0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0,0,0,0.5);
-      }
-      
-      .panel {
-          position: fixed;
-          width:30%;
-          left: 35%;
-          top: 35%;
-          
-          background-color: white;
-      }
-      
-      .panel .content {
-          margin: 3px;
-          padding: 4px;
-          
-          background-color: rgba(0,0,0,0.1);
-      }
-      
-      .panel .content #text {
-          line-height: 1;
-          font-family: monospace;
-      }
-      
+        .publication .download {
+            float:left;
+            width:60px;
+        }
+        
+        .obscure {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .panel {
+            position: fixed;
+            width:30%;
+            left: 35%;
+            top: 35%;
+            
+            background-color: white;
+        }
+        
+        .panel .content {
+            margin: 3px;
+            padding: 4px;
+            
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .panel .content #text {
+            line-height: 1;
+            font-family: monospace;
+        }
+        
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #snackbar {
+            visibility: hidden; /* Hidden by default. Visible on click */
+            min-width: 250px; /* Set a default minimum width */
+            margin-left: -125px; /* Divide value of min-width by 2 */
+            background-color: #333; /* Black background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centered text */
+            border-radius: 2px; /* Rounded borders */
+            padding: 16px; /* Padding */
+            position: fixed; /* Sit on top of the screen */
+            z-index: 1; /* Add a z-index if needed */
+            left: 50%; /* Center the snackbar */
+            bottom: 30px; /* 30px from the bottom */
+        }
+
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show {
+            visibility: visible; /* Show the snackbar */
+
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+        However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
     </style>
 </head>
 <body class="light-shadow">
@@ -272,6 +318,44 @@
               <div class="venue" style="font-size: 12px; font-weight: bold;">Venue</div>
             </div>
             <div class="download" style="font-size: 12px; font-weight: bold;">Resources</div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[J1]</div>
+
+            <div class="details">
+              <div class="title">Listening to the Crowd for the Release Planning of Mobile Apps</div>
+              <div class="authors">Simone Scalabrino, Gabriele Bavota, Barbara Russo, Massimiliano Di Penta, Rocco Oliveto</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">TSE</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2017/tseClapPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2017', 'tseClap');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[C7]</div>
+
+            <div class="details">
+              <div class="title">Automatically Assessing Code Understandability: How Far Are We?</div>
+              <div class="authors">Simone Scalabrino, Gabriele Bavota, Christopher Vendome, Mario Linares-V&aacute;squez, Denys Poshyvanyk, Rocco Oliveto</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">ASE</div>
+              <div class="venue">2017</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2017/aseUnderstandabilityPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2017', 'aseUnderstandability');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
           </div>
           
           <div class="publication clearfix">
@@ -528,6 +612,8 @@
     <footer>
         <!-- Put content here if you'd like (ie copyright) -->
     </footer>
+    
+    <div id="snackbar">...</div>
 
     <!-- Ask time travelers (IE 6 & 7 users) to update their browser. -->
     <!--[if lt IE 8]>
@@ -546,13 +632,63 @@
     
     <!-- Google Analytics rocks! Change to your ID for awesome tracking and analytics -->
     <script type="text/javascript">
+    
+    function copyTextToClipboard(text) {
+        var textArea = document.createElement("textarea");
+        textArea.style.position = 'fixed';
+        textArea.style.top = 0;
+        textArea.style.left = 0;
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+        textArea.style.padding = 0;
+        
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+        
+        textArea.style.background = 'transparent';
+        
+        textArea.value = text;
+        
+        document.body.appendChild(textArea);
+        
+        textArea.select();
+        
+        result = true
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+        } catch (err) {
+            result = false
+        }
+        
+        document.body.removeChild(textArea);
+        return result
+    }
+    
+    function toast(text) {
+        var x = document.getElementById("snackbar");
+        x.innerHTML = text;
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    
     function cite(year, name) {
         citation = get_citation(year, name)
-        $('.obscure .panel .content #text').html(citation)
-        $('.obscure .panel .content #text').ready(function() {
-            $('.obscure .panel').css('top', 0)//(window.innerHeight/2 - $('.obscure .panel').height()/2) + "px")
-            $('.obscure').show()
-        })
+        if (citation != undefined) {
+            result = copyTextToClipboard(citation)
+            if (result) {
+                toast("BibTeX citation copied to clipboard!");
+            } else {
+                $('.obscure .panel .content #text').html(citation)
+                $('.obscure .panel .content #text').ready(function() {
+                    $('.obscure .panel').css('top', 0)//(window.innerHeight/2 - $('.obscure .panel').height()/2) + "px")
+                    $('.obscure').show()
+                })
+            }
+        } else {
+            toast("BibTeX citation not available yet (to appear)");
+        }
     }
     
     function close_cite(name) {
