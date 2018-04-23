@@ -161,6 +161,17 @@
             -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
+        
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show_error {
+            visibility: visible; /* Show the snackbar */
+            background-color: #AA0000;
+
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+        However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
 
         /* Animations to fade the snackbar in and out */
         @-webkit-keyframes fadein {
@@ -318,6 +329,44 @@
               <div class="venue" style="font-size: 12px; font-weight: bold;">Venue</div>
             </div>
             <div class="download" style="font-size: 12px; font-weight: bold;">Resources</div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[J2]</div>
+
+            <div class="details">
+              <div class="title">A Comprehensive Model for Code Readability</div>
+              <div class="authors">Simone Scalabrino, Mario Linares-V&aacute;squez, Denys Poshyvanyk, Rocco Oliveto</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">JSEP</div>
+              <div class="venue">2018</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2018/jsepReadabilityPaper.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2018', 'jsepReadability');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
+          </div>
+          
+          <div class="publication clearfix">
+            <div class="type" title="Conference paper">[C8]</div>
+
+            <div class="details">
+              <div class="title">An Empirical Investigation on the Readability of Manual and Generated Test Cases</div>
+              <div class="authors">Giovanni Grano, Simone Scalabrino, Harald C. Gall, Rocco Oliveto</div>
+            </div>
+
+            <div class="description">
+              <div class="venue">ICPC (ERA Track)</div>
+              <div class="venue">2018</div>
+            </div>
+
+            <div class="download">
+              <a href="files/2018/icpcTestReadability.pdf"><i class="fa fa-book" aria-hidden="true" title="Download full paper"></i></a>
+              <a href="javascript:cite('2018', 'icpcTestReadability');"><i class="fa fa-quote-right" aria-hidden="true" title="Cite"></i></a>
+            </div>
           </div>
           
           <div class="publication clearfix">
@@ -557,6 +606,12 @@
             <div id="item3">
                 <h1>Open Source Software projects</h1>
                 <div style="text-align:justify">
+                    <h2>qtws</h2>
+                    <p>
+                    Some online contents, typically accessed through a browser, are fully fledged applications (web applications). YouTube or Google Maps are examples of that. These webapps are self-consistent, and they usually work very well without standard browser features (e.g., bookmarks or history). qtws is the simplest web browser conceivable: it only provides the content of the page and, by default, three actions (back, reload and home), accessible through a contextual menu. Nothing else. qtws is specific for webapps, and it works with a single webapp at a time. Users that want to access Google Maps can open qtws with a configuration file specific for that app. The configuration file allows to personalize the user experience of the specific webapp, adding shortcuts to the contextual menu. qtws opens links not related to the webapp (e.g., the webpage of a restaurant) in the default system browser. In summary, qtws transforms webapps in desktop apps with no effort and it provides a consistent user experience.<br/>
+                    <a href="https://github.com/intersimone999/qtws/fork"> Fork me on GitHub! </a>
+                    </p>
+                    
                     <h2>xSwipe</h2>
                     <p>
                     Despite the support offered at hardware and driver level, Linux lacks of a gesture handling system for trackpads. Gestures with two/three
@@ -586,7 +641,7 @@
         
           <h2>Professional services</h2>
           <ul>
-              <li>Chief Scientific Officer at <a href="https://datasounds.io/">Datasounds</a></li>
+              <li>Chief Scientific Officer at <a href="https://datasound.it/">Datasound</a></li>
               <li>Member of the <a href="https://dibt.unimol.it/labs/stake/">STAKE lab</a> at University of Molise</li>
           </ul>
           
@@ -667,10 +722,10 @@
         return result
     }
     
-    function toast(text) {
+    function toast(text, errored) {
         var x = document.getElementById("snackbar");
         x.innerHTML = text;
-        x.className = "show";
+        x.className = errored ? "show_error" : "show";
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
     
@@ -679,7 +734,7 @@
         if (citation != undefined) {
             result = copyTextToClipboard(citation)
             if (result) {
-                toast("BibTeX citation copied to clipboard!");
+                toast("BibTeX citation copied to clipboard!", false);
             } else {
                 $('.obscure .panel .content #text').html(citation)
                 $('.obscure .panel .content #text').ready(function() {
@@ -688,7 +743,7 @@
                 })
             }
         } else {
-            toast("BibTeX citation not available yet (to appear)");
+            toast("BibTeX citation not available yet (to appear)", true);
         }
     }
     

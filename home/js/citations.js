@@ -1,5 +1,10 @@
 function get_citation(year, name) {
     citations = {
+        '2018': {
+//             'icpcTestReadability': 'To appear'
+//             'jsepReadability': 'To appear'
+        },
+        
         '2017': {
             'icsesrcOdysseys' : '@inproceedings{Scalabrino:2017:SOP:3098344.3098374,\nauthor = {Scalabrino, Simone},\ntitle = {On Software Odysseys and How to Prevent Them},\nbooktitle = {Proceedings of the 39th International Conference on Software Engineering Companion},\nseries = {ICSE-C 17},\nyear = {2017},\nisbn = {978-1-5386-1589-8},\nlocation = {Buenos Aires, Argentina},\npages = {91--93},\nnumpages = {3},\nurl = {https://doi.org/10.1109/ICSE-C.2017.157},\ndoi = {10.1109/ICSE-C.2017.157},\nacmid = {3098374},\npublisher = {IEEE Press},\naddress = {Piscataway, NJ, USA},\nkeywords = {program comprehension, recommender systems, software maintenance},\n}',
             
@@ -8,7 +13,7 @@ function get_citation(year, name) {
             'msrASCAT': '@inproceedings{Zampetti:2017:OSP:3104188.3104230, author = {Zampetti, Fiorella and Scalabrino, Simone and Oliveto, Rocco and Canfora, Gerardo and Di Penta, Massimiliano},\ntitle = {How Open Source Projects Use Static Code Analysis Tools in Continuous Integration Pipelines},\nbooktitle = {Proceedings of the 14th International Conference on Mining Software Repositories},\nseries = {MSR 17},\nyear = {2017},\nisbn = {978-1-5386-1544-7},\nlocation = {Buenos Aires, Argentina},\npages = {334--344},\nnumpages = {11},\nurl {https://doi.org/10.1109/MSR.2017.2},\ndoi = {10.1109/MSR.2017.2},\nacmid = {3104230},\npublisher = {IEEE Press},\naddress = {Piscataway, NJ, USA},\nkeywords = {continuous integration, empirical study, open source projects, static analysis tools},\n}',
             
 //             'freelancing': 'To appear',
-//             'aseUnderstandability': 'To appear',
+            'aseUnderstandability': '@inproceedings{Scalabrino:2017:AAC:3155562.3155617,\n author = {Scalabrino, Simone and Bavota, Gabriele and Vendome, Christopher and Linares-Vásquez, Mario and Poshyvanyk, Denys and Oliveto, Rocco},\n title = {Automatically Assessing Code Understandability: How Far Are We?},\n booktitle = {Proceedings of the 32Nd IEEE/ACM International Conference on Automated Software Engineering},\n series = {ASE 2017},\n year = {2017},\n isbn = {978-1-5386-2684-9},\n location = {Urbana-Champaign, IL, USA},\n pages = {417--427},\n numpages = {11},\n url = {http://dl.acm.org/citation.cfm?id=3155562.3155617},\n acmid = {3155617},\n publisher = {IEEE Press},\n address = {Piscataway, NJ, USA},\n keywords = {Code understandability, Empirical study, Negative result, Software metrics}\n}',
 //             'tseClap': 'To appear'
         },
         
