@@ -1,8 +1,11 @@
 function get_citation(year, name) {
     citations = {
+        '2019': {
+            'tseUnderstandability': '@ARTICLE{8651396, \nauthor={S. {Scalabrino} and G. {Bavota} and C. {Vendome} and M. {Linares-V?squez} and D. {Poshyvanyk} and R. {Oliveto}}, \njournal={IEEE Transactions on Software Engineering}, \ntitle={Automatically Assessing Code Understandability}, \nyear={2019}, \nvolume={}, \nnumber={}, \npages={1-1}, \nkeywords={Complexity theory;Software;Computer bugs;Readability metrics;Software measurement;Indexes;Software metrics;Code understandability;Empirical study;Negative result}, \ndoi={10.1109/TSE.2019.2901468}, \nISSN={0098-5589}, \nmonth={},}'
+        }
         '2018': {
-//             'icpcTestReadability': 'To appear'
-//             'jsepReadability': 'To appear'
+             'icpcTestReadability': '@inproceedings{Grano:2018:EIR:3196321.3196363,\n author = {Grano, Giovanni and Scalabrino, Simone and Gall, Harald C. and Oliveto, Rocco},\n title = {An Empirical Investigation on the Readability of Manual and Generated Test Cases},\n booktitle = {Proceedings of the 26th Conference on Program Comprehension},\n series = {ICPC 2018},\n year = {2018},\n isbn = {978-1-4503-5714-2},\n location = {Gothenburg, Sweden},\n pages = {348--351},\n numpages = {4},\n url = {http://doi.acm.org/10.1145/3196321.3196363},\n doi = {10.1145/3196321.3196363},\n acmid = {3196363},\n publisher = {ACM},\n address = {New York, NY, USA},\n keywords = {automated testing, empirical software engineering, readability},\n}', 
+             'jsepReadability': '@article{doi:10.1002/smr.1958,\nauthor = {Scalabrino, Simone and Linares-Vásquez, Mario and Oliveto, Rocco and Poshyvanyk, Denys},\ntitle = {A comprehensive model for code readability},\njournal = {Journal of Software: Evolution and Process},\nvolume = {30},\nnumber = {6},\npages = {e1958},\nkeywords = {code readability, quality warning prediction, textual analysis},\ndoi = {10.1002/smr.1958},\nurl = {https://onlinelibrary.wiley.com/doi/abs/10.1002/smr.1958},\neprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/smr.1958},\nnote = {e1958 smr.1958},\nabstract = {Abstract Unreadable code could compromise program comprehension, and it could cause the introduction of bugs. Code consists of mostly natural language text, both in identifiers and comments, and it is a particular form of text. Nevertheless, the models proposed to estimate code readability take into account only structural aspects and visual nuances of source code, such as line length and alignment of characters. In this paper, we extend our previous work in'
         },
         
         '2017': {
