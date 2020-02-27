@@ -1,7 +1,12 @@
 function get_citation(year, name) {
     citations = {
+        '2020': {
+        },
+        
         '2019': {
-            'tseUnderstandability': '@ARTICLE{8651396, \nauthor={S. {Scalabrino} and G. {Bavota} and C. {Vendome} and M. {Linares-V?squez} and D. {Poshyvanyk} and R. {Oliveto}}, \njournal={IEEE Transactions on Software Engineering}, \ntitle={Automatically Assessing Code Understandability}, \nyear={2019}, \nvolume={}, \nnumber={}, \npages={1-1}, \nkeywords={Complexity theory;Software;Computer bugs;Readability metrics;Software measurement;Indexes;Software metrics;Code understandability;Empirical study;Negative result}, \ndoi={10.1109/TSE.2019.2901468}, \nISSN={0098-5589}, \nmonth={},}'
+            'tseUnderstandability': '@ARTICLE{8651396, \nauthor={S. {Scalabrino} and G. {Bavota} and C. {Vendome} and M. {Linares-V?squez} and D. {Poshyvanyk} and R. {Oliveto}}, \njournal={IEEE Transactions on Software Engineering}, \ntitle={Automatically Assessing Code Understandability}, \nyear={2019}, \nvolume={}, \nnumber={}, \npages={1-1}, \nkeywords={Complexity theory;Software;Computer bugs;Readability metrics;Software measurement;Indexes;Software metrics;Code understandability;Empirical study;Negative result}, \ndoi={10.1109/TSE.2019.2901468}, \nISSN={0098-5589}, \nmonth={},}',
+            
+            'memeaAtticus': '@inproceedings{balestrieri2019architecture,\ntitle={The architecture of an innovative smart T-shirt based on the Internet of Medical Things paradigm},\nauthor={Balestrieri, Eulalia and Boldi, Franco and Colavita, Angela Rita and De Vito, Luca and Laudato, Gennaro and Oliveto, Rocco and Picariello, Francesco and Rivaldi, Simone and Scalabrino, Simone and Torchitti, Paolo and others},\nbooktitle={2019 IEEE International Symposium on Medical Measurements and Applications (MeMeA)},\npages={1--6},\nyear={2019},\norganization={IEEE}}'
         },
         
         '2018': {

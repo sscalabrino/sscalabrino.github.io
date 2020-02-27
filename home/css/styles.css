@@ -286,6 +286,10 @@ footer {
     width:460px;
 }
 
+.venue {
+    margin-left: 10px;
+}
+
 /* Columns */
 .two-thirds {
     width:409px;
