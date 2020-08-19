@@ -211,7 +211,7 @@ header hgroup h1 {
     font-size:30px;
     line-height:24px;
     margin:0 0 6px 0;
-    letter-spacing:-0.08em;
+/*    letter-spacing:-0.08em;*/
 }
 header hgroup h1 a,
 header hgroup h1 a:hover {
@@ -475,7 +475,7 @@ ol { margin:0 0 24px 0; }
 h2 {
     font-size:18px;
     color:#393939;
-    letter-spacing:-0.1em;
+/*    letter-spacing:-0.1em;*/
     margin:34px 0 6px 0;
 }
 
