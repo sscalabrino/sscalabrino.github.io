@@ -7,7 +7,7 @@ Dir.chdir(File.dirname(File.expand_path(__FILE__)) + "/../home")
 
 PUBLICATION_TEMPATE = <<TEMPLATE
 <div class="publication clearfix">
-    <div class="type" title="{TYPE}">{COUNTER}</div>
+    <div class="type" title="{TYPE}">[{COUNTER}]</div>
 
     <div class="details">
         <div class="title">{TITLE}</div>
