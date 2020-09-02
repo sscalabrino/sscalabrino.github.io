@@ -72,7 +72,6 @@ def instantiate_template(entry, type, counter)
     
     if entry.doi != nil && entry.doi.value.strip.chomp != ""
         key = entry.doi.gsub(/[^0-9A-Za-z.\-]/, "_")
-#         bibpath  = save_bibfile(entry, key)
         bib_element = make_entry_hash(entry, key)
         cite_row = CITE_ROW.gsub('{KEY}', key)
     else
@@ -121,17 +120,6 @@ def print_and_instantiate_for(bib, category, label)
     return text, bib_elements
 end
 
-def save_bibfile(entry, key)
-    path = "files/citations/#{key}.bib"
-    singlebib = BibTeX::Bibliography.new
-    entry = entry.clone
-    entry.keywords = nil
-    singlebib << entry
-    singlebib.save_to(path)
-    
-    return path
-end
-
 def make_entry_hash(entry, key)
     entry = entry.clone
     entry.keywords = nil
@@ -142,7 +130,6 @@ def make_entry_hash(entry, key)
 end
 
 def make_bibtext(bibliography)
-    
     journals, journals_bibs = print_and_instantiate_for(bibliography, '@article', "Journal paper")
     confs, confs_bibs       = print_and_instantiate_for(bibliography, '@inproceedings', "Conference paper")
         
