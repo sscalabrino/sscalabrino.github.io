@@ -71,7 +71,7 @@ def instantiate_template(entry, type, counter)
     venue = venue.scan(/\(([^)]+)\)/).flatten.first.gsub(/[{}]/, "")
     
     if entry.doi != nil && entry.doi.value.strip.chomp != ""
-        key = entry.doi.gsub("/", "_")
+        key = entry.doi.gsub(/[^0-9A-Za-z.\-]/, "_")
 #         bibpath  = save_bibfile(entry, key)
         bib_element = make_entry_hash(entry, key)
         cite_row = CITE_ROW.gsub('{KEY}', key)
