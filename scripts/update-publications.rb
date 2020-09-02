@@ -1,6 +1,10 @@
 require 'bibtex'
 require 'json'
 
+BIBROOT      = "/home/simone/Documents/Curriculum/Current/bib/"
+
+Dir.chdir(File.dirname(File.expand_path(__FILE__)) + "/../home")
+
 PUBLICATION_TEMPATE = <<TEMPLATE
 <div class="publication clearfix">
     <div class="type" title="{TYPE}">{COUNTER}</div>
@@ -22,7 +26,6 @@ PUBLICATION_TEMPATE = <<TEMPLATE
 </div>
 TEMPLATE
 
-BIBROOT      = "/home/simone/Documents/Curriculum/Current/bib/"
 DOWNLOAD_ROW = "<a href=\"{PATH}\"><i class=\"fa fa-book\" aria-hidden=\"true\" title=\"Download\"></i></a>"
 CITE_ROW     = "<a href=\"javascript:cite('{KEY}');\"><i class=\"fa fa-quote-right\" aria-hidden=\"true\" title=\"Cite\"></i></a>"
 
