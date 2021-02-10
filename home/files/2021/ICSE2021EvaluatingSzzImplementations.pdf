@@ -1,0 +1,7 @@
+--2021-02-10 16:47:46--  https://arxiv.org/pdf/2102.03300.pdf
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving arxiv.org (arxiv.org)... 128.84.21.199
+Connecting to arxiv.org (arxiv.org)|128.84.21.199|:443... connected.
+HTTP request sent, awaiting response... 403 Forbidden
+2021-02-10 16:47:47 ERROR 403: Forbidden.
+
