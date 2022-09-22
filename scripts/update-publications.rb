@@ -27,9 +27,9 @@ PUBLICATION_TEMPATE = <<TEMPLATE
 </div>
 TEMPLATE
 
-DOI_ROW = "<a href=\"{DOI}\" target=\"_blank\"><i class=\"fa fa-book\" aria-hidden=\"true\" title=\"Publication\"></i></a>"
-DOWNLOAD_ROW = "<a href=\"{PATH}\"><i class=\"fa fa-download\" aria-hidden=\"true\" title=\"Download\"></i></a>"
-CITE_ROW     = "<a href=\"javascript:cite('{KEY}');\"><i class=\"fa fa-quote-right\" aria-hidden=\"true\" title=\"Cite\"></i></a>"
+DOI_ROW = "<a href=\"{DOI}\" target=\"_blank\"><i class=\"fa fa-book\" aria-hidden=\"true\" title=\"Go to the publication\"></i></a>"
+DOWNLOAD_ROW = "<a href=\"{PATH}\"><i class=\"fa fa-download\" aria-hidden=\"true\" title=\"Download preprint\"></i></a>"
+CITE_ROW     = "<a href=\"javascript:cite('{KEY}');\"><i class=\"fa fa-quote-right\" aria-hidden=\"true\" title=\"Cite article\"></i></a>"
 
 class String
     def fixspecials
@@ -76,10 +76,12 @@ def instantiate_template(entry, type, counter)
         key = entry.doi.gsub(/[^0-9A-Za-z.\-]/, "_")
         bib_element = make_entry_hash(entry, key)
         cite_row = CITE_ROW.gsub('{KEY}', key)
+        publication_row = DOI_ROW.gsub('{DOI}', "https://dx.doi.org/" + entry.doi)
     else
         key = nil
         bib_element = {}
         cite_row = ""
+        publication_row = ""
     end
     
     download_path = "files/#{entry.year.value}/#{venue}#{entry.year.value}#{entry.title.value.split(/[^A-Za-z0-9]/).select { |e| e.length > 0}[0...3].map { |w| w.capitalize }.join("") }.pdf"    
@@ -88,11 +90,6 @@ def instantiate_template(entry, type, counter)
     else
         download_row = ""
         warn "File #{download_path} not found for pub \"#{entry.title.value.fixspecials}\""
-    end
-    
-    publication_row = ""
-    if entry.doi
-        publication_row = DOI_ROW.gsub('{DOI}', "https://dx.doi.org/" + entry.doi)
     end
     
     author_string = entry.author.to_a.map { |a| a.first.fixspecials + " " + a.last.fixspecials }.map { |e| e == "Simone Scalabrino" ? "<b>Simone Scalabrino</b>" : e }.join(", ")
