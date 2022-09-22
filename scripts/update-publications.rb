@@ -20,13 +20,15 @@ PUBLICATION_TEMPATE = <<TEMPLATE
     </div>
 
     <div class="download">
+        {PUBLICATION}
         {DOWNLOAD}
         {CITE}
     </div>
 </div>
 TEMPLATE
 
-DOWNLOAD_ROW = "<a href=\"{PATH}\"><i class=\"fa fa-book\" aria-hidden=\"true\" title=\"Download\"></i></a>"
+DOI_ROW = "<a href=\"{DOI}\" target=\"_blank\"><i class=\"fa fa-book\" aria-hidden=\"true\" title=\"Publication\"></i></a>"
+DOWNLOAD_ROW = "<a href=\"{PATH}\"><i class=\"fa fa-download\" aria-hidden=\"true\" title=\"Download\"></i></a>"
 CITE_ROW     = "<a href=\"javascript:cite('{KEY}');\"><i class=\"fa fa-quote-right\" aria-hidden=\"true\" title=\"Cite\"></i></a>"
 
 class String
@@ -88,15 +90,24 @@ def instantiate_template(entry, type, counter)
         warn "File #{download_path} not found for pub \"#{entry.title.value.fixspecials}\""
     end
     
+    publication_row = ""
+    if entry.doi
+        publication_row = DOI_ROW.gsub('{DOI}', "https://dx.doi.org/" + entry.doi)
+    end
+    
     author_string = entry.author.to_a.map { |a| a.first.fixspecials + " " + a.last.fixspecials }.map { |e| e == "Simone Scalabrino" ? "<b>Simone Scalabrino</b>" : e }.join(", ")
+    
+    title = entry.title.value.fixspecials
+    # title = "<a href=\"https://dx.doi.org/#{entry.doi}\">#{title}</a>" if entry.doi
     
     element = PUBLICATION_TEMPATE.clone
     element.gsub!('{TYPE}', type)
     element.gsub!('{COUNTER}', entry.keywords.value  + counter.to_s)
-    element.gsub!('{TITLE}', entry.title.value.fixspecials)
+    element.gsub!('{TITLE}', title)
     element.gsub!('{AUTHOR}', author_string)
     element.gsub!('{VENUE}', venue)
     element.gsub!('{YEAR}', entry.year.value)
+    element.gsub!('{PUBLICATION}', publication_row)
     element.gsub!('{DOWNLOAD}', download_row)
     element.gsub!('{CITE}', cite_row)
     
