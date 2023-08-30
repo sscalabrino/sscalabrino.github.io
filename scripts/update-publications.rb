@@ -83,8 +83,9 @@ def instantiate_template(entry, type, counter)
         cite_row = ""
         publication_row = ""
     end
+    year = (type.downcase.include?("conference") ? entry['annote'].value : entry.year.value)
     
-    download_path = "files/#{entry.year.value}/#{venue}#{entry.year.value}#{entry.title.value.split(/[^A-Za-z0-9]/).select { |e| e.length > 0}[0...3].map { |w| w.capitalize }.join("") }.pdf"    
+    download_path = "files/#{year}/#{venue}#{year}#{entry.title.value.split(/[^A-Za-z0-9]/).select { |e| e.length > 0}[0...3].map { |w| w.capitalize }.join("") }.pdf"    
     if FileTest.exist?(download_path)
         download_row = DOWNLOAD_ROW.gsub('{PATH}', download_path)
     else
@@ -103,7 +104,7 @@ def instantiate_template(entry, type, counter)
     element.gsub!('{TITLE}', title)
     element.gsub!('{AUTHOR}', author_string)
     element.gsub!('{VENUE}', venue)
-    element.gsub!('{YEAR}', entry.year.value)
+    element.gsub!('{YEAR}', year)
     element.gsub!('{PUBLICATION}', publication_row)
     element.gsub!('{DOWNLOAD}', download_row)
     element.gsub!('{CITE}', cite_row)
