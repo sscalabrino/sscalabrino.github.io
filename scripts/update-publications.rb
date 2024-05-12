@@ -129,6 +129,33 @@ def print_and_instantiate_for(bib, category, label)
     return text, bib_elements
 end
 
+def print_and_instantiate_all(bib, categories, labels)
+    text = ""
+    all = []
+    categories.each do |category|
+        all += bib[category]
+    end
+    all.sort_by! { |e| -e.year.to_i }
+    
+    bib_elements = {}
+    counters = all.map{ |e| e.keywords.value }.uniq.map { |k| [k, all.select { |e| e.keywords.value == k }.size]}.to_h
+    last_year = nil
+    all.each do |entry|
+        if last_year != entry.year
+            last_year = entry.year
+            text += "\n<h2>#{entry.year}</h2>\n"
+        end
+        label = labels[entry.type]
+        part, bib_element = instantiate_template(entry, label, counters[entry.keywords.value])
+        text += part
+        bib_elements = bib_elements.merge(bib_element)
+        
+        counters[entry.keywords.value] -= 1
+    end
+    
+    return text, bib_elements
+end
+
 def make_entry_hash(entry, key)
     entry = entry.clone
     entry.keywords = nil
@@ -139,10 +166,11 @@ def make_entry_hash(entry, key)
 end
 
 def make_bibtext(bibliography)
-    journals, journals_bibs = print_and_instantiate_for(bibliography, '@article', "Journal paper")
-    confs, confs_bibs       = print_and_instantiate_for(bibliography, '@inproceedings', "Conference paper")
+    # journals, journals_bibs = print_and_instantiate_for(bibliography, '@article', "Journal paper")
+    # confs, confs_bibs       = print_and_instantiate_for(bibliography, '@inproceedings', "Conference paper")
+    return print_and_instantiate_all(bibliography, ['@article', '@inproceedings'], {inproceedings: "Conference paper", article: "Journal paper"})
         
-    return journals + confs, journals_bibs.merge(confs_bibs) 
+    # return journals + confs, journals_bibs.merge(confs_bibs) 
 end
 
 website         = File.read("index.html")
