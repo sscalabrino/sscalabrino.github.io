@@ -1,5 +1,6 @@
 require 'bibtex'
 require 'json'
+require_relative 'toignore'
 
 BIBROOT      = "/home/simone/Documents/Curriculum/Current/bib/"
 
@@ -90,7 +91,9 @@ def instantiate_template(entry, type, counter)
         download_row = DOWNLOAD_ROW.gsub('{PATH}', download_path)
     else
         download_row = ""
-        warn "File #{download_path} not found for pub \"#{entry.title.value.fixspecials}\""
+        unless ignore_for_file_warning(entry.title.value.fixspecials, venue)
+            warn "File #{download_path} not found for pub \"#{entry.title.value.fixspecials}\""
+        end
     end
     
     author_string = entry.author.to_a.map { |a| a.first.fixspecials + " " + a.last.fixspecials }.map { |e| e == "Simone Scalabrino" ? "<b>Simone Scalabrino</b>" : e }.join(", ")
