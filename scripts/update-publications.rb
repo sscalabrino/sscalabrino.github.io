@@ -70,6 +70,7 @@ def load_bib
 end
 
 def instantiate_template(entry, type, counter)
+    # puts "Processing #{entry.doi}"
     venue = entry.journal ? entry.journal.value : entry.booktitle.value
     venue = venue.scan(/\(([^)]+)\)/).flatten.first.gsub(/[{}]/, "")
     
